@@ -20,11 +20,13 @@ ipam = phpipam_api.PhpipamAPI(
     )
 
 def jp (jsonData):
-    print(json.dumps(jsonData,indent=2,))
+    print(json.dumps(jsonData,indent=2,ensure_ascii=False,))
 
 # read object
-jp(ipam.sections.get())
-jp(ipam.subnets.getAddresses(subnet_id=7))
+# jp(ipam.sections.get())
+# jp(ipam.subnets.getAddresses(subnet_id=7))
+jp(ipam.subnets.getIP(subnet_id=7,ip="10.3.6.51")[0])
+# print(ipam.subnets.getIP(subnet_id=7,ip="10.3.6.51"))
 
 """ ipam.get('/sections/', {
     'filter_by': 'id',
